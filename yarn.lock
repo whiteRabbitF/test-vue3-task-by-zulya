@@ -521,7 +521,7 @@ vue-resize@^1.0.1:
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-vue@^2.6.0, vue@^3.0.1, vue@^3.3.4, vue@3.4.22:
+vue@^3.3.4:
   version "3.4.22"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.22.tgz"
   integrity sha512-CIx7NiP+n5WHBCG/fDNaUPP4qbQ5CIa8XIHZE3HpfS/rb2vmSIsp74BxsZyrrGKF0vHW3GoToqP3l0hzrMTecw==
