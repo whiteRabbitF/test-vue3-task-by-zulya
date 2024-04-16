@@ -4,6 +4,11 @@
     @drop="onDrop($event, options.id)"
     @dragover.prevent
     @dragenter.prevent>
+    <SortButtons
+        :cards="cards"
+        @sort="sortCards"
+        class="sort-buttons"
+    />
     <div class="title">
       <h2>
         {{ options.title }}
@@ -41,6 +46,7 @@
   import { ref, inject } from 'vue';
   import CardItem from './CardItem.vue';
   import CardForm from './CardForm.vue';
+  import SortButtons from './SortButtons.vue';
 
   const firstList = inject('firstList');
   const secondList = inject('secondList');
@@ -78,6 +84,18 @@
     }
   }
   getLocalCards();
+  function sortCards(sortType) {
+    switch (sortType) {
+      case '1':
+        cards.value.sort((a, b) => a.rating.rate - b.rating.rate);
+        break;
+      case '2':
+        cards.value.sort((a, b) => b.rating.rate - a.rating.rate);
+        break;
+      case '0':
+        break;
+    }
+  }
 
   function addCard() {
     cards.value.unshift(form.value);
@@ -158,6 +176,9 @@
         justify-content: center;
         align-items: center;
       }
+    }
+    .sort-buttons{
+      margin-bottom: 15px;
     }
   }
 </style>
